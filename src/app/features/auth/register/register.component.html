@@ -1,0 +1,98 @@
+<div class="register-wrapper">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100 py-5">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="card register-card shadow-lg">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <div class="logo-placeholder mx-auto mb-3">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <h3 class="register-title mb-2">Create Your Account</h3>
+              <p class="text-muted small">Join our academic community</p>
+            </div>
+
+            <!-- Reactive Form -->
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <!-- Full Name -->
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" formControlName="fullName">
+                <div *ngIf="submitted && f['fullName'].errors" class="text-danger small">
+                  <span *ngIf="f['fullName'].errors['required']">Name is required</span>
+                  <span *ngIf="f['fullName'].errors['minlength']">At least 3 characters</span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div *ngIf="submitted && f['email'].errors" class="text-danger small">
+                  <span *ngIf="f['email'].errors['required']">Email is required</span>
+                  <span *ngIf="f['email'].errors['email']">Invalid email format</span>
+                </div>
+              </div>
+
+              <!-- Passwords -->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password">
+                  <div *ngIf="submitted && f['password'].errors" class="text-danger small">
+                    <span *ngIf="f['password'].errors['required']">Password required</span>
+                    <span *ngIf="f['password'].errors['minlength']">At least 6 characters</span>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="confirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+                  <div *ngIf="submitted && (f['confirmPassword'].errors || registerForm.errors?.['mismatch'])" class="text-danger small">
+                    <span *ngIf="f['confirmPassword'].errors?.['required']">Confirm your password</span>
+                    <span *ngIf="registerForm.errors?.['mismatch']">Passwords do not match</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Major -->
+              <div class="mb-3">
+                <label for="major" class="form-label">Major / Field of Study</label>
+                <input type="text" class="form-control" id="major" formControlName="major">
+                <div *ngIf="submitted && f['major'].errors" class="text-danger small">
+                  Field is required
+                </div>
+              </div>
+
+              <!-- Skills -->
+              <div class="mb-4">
+                <label for="skills" class="form-label">Skills</label>
+                <textarea class="form-control" id="skills" rows="3" formControlName="skills"></textarea>
+                <div *ngIf="submitted && f['skills'].errors" class="text-danger small">
+                  <span *ngIf="f['skills'].errors['required']">Skills required</span>
+                  <span *ngIf="f['skills'].errors['minlength']">At least 5 characters</span>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary btn-lg register-btn">Create Account</button>
+              </div>
+
+              <div class="text-center">
+                <p class="login-link mb-0">
+                  Already have an account?
+                  <a routerLink="/login" class="text-decoration-none">Login here</a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <p class="text-muted small">&copy; 2025 University Portal. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

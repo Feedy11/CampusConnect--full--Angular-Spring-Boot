@@ -1,0 +1,257 @@
+<div class="profile-container">
+  <!-- Header Section -->
+  <div class="profile-header">
+    <div class="header-background"></div>
+    <div class="header-content">
+      <div class="profile-avatar-section">
+        <div class="avatar-wrapper">
+          <img src="https://ui-avatars.com/api/?name=John+Doe&background=667eea&color=fff&bold=true&size=200" alt="Profile" class="profile-avatar">
+          <button class="avatar-edit-btn">
+            <i class="bi bi-camera"></i>
+          </button>
+        </div>
+      </div>
+      <div class="profile-info">
+        <h1 class="profile-name">fadi naffeti </h1>
+        <p class="profile-email"><i class="bi bi-envelope"></i>fadinaffeti&#64;universite.tn</p>
+        <p class="profile-specialty"><i class="bi bi-bookmark"></i> Informatique - Développement Web</p>
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Projets</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">45</span>
+            <span class="stat-label">Connexions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Événements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="profile-content">
+    <!-- View Mode -->
+    <div class="profile-view" id="profileView">
+      <div class="content-card">
+        <div class="card-header">
+          <h2><i class="bi bi-person-circle"></i> À propos</h2>
+          <button class="btn-edit" id="editBtn">
+            <i class="bi bi-pencil"></i>
+            <span>Modifier le profil</span>
+          </button>
+        </div>
+
+        <div class="profile-details">
+          <div class="detail-section">
+            <h3><i class="bi bi-info-circle"></i> Informations personnelles</h3>
+            <div class="detail-grid">
+              <div class="detail-item">
+                <label>Nom complet</label>
+                <p id="viewName">fadi naffeti</p>
+              </div>
+              <div class="detail-item">
+                <label>Email</label>
+                <p id="viewEmail">fadinaffeti&#64;universite.tn</p>
+              </div>
+              <div class="detail-item">
+                <label>Université</label>
+                <p id="viewUniversity">ISET Nabeul</p>
+              </div>
+              <div class="detail-item">
+                <label>Spécialité</label>
+                <p id="viewSpecialty">Informatique - Développement Web</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h3><i class="bi bi-file-text"></i> Biographie</h3>
+            <p class="bio-text" id="viewBio">
+              Étudiant passionné en informatique avec un fort intérêt pour le développement web et les nouvelles technologies.
+              J'aime collaborer sur des projets innovants et partager mes connaissances avec la communauté étudiante.
+            </p>
+          </div>
+
+          <div class="detail-section">
+            <h3><i class="bi bi-stars"></i> Compétences</h3>
+            <div class="skills-container" id="viewSkills">
+              <span class="skill-badge">Angular</span>
+              <span class="skill-badge">Spring Boot</span>
+              <span class="skill-badge">Java</span>
+              <span class="skill-badge">TypeScript</span>
+              <span class="skill-badge">PostgreSQL</span>
+              <span class="skill-badge">HTML/CSS</span>
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">REST API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Mode -->
+    <div class="profile-edit" id="profileEdit" style="display: none;">
+      <div class="content-card">
+        <div class="card-header">
+          <h2><i class="bi bi-pencil-square"></i> Modifier le profil</h2>
+          <button class="btn-cancel" id="cancelBtn">
+            <i class="bi bi-x-lg"></i>
+            <span>Annuler</span>
+          </button>
+        </div>
+
+        <form class="edit-form" id="editForm">
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3><i class="bi bi-person"></i> Informations personnelles</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="editFirstName">
+                  <i class="bi bi-person"></i>
+                  Prénom
+                </label>
+                <input
+                  type="text"
+                  id="editFirstName"
+                  class="form-control"
+                  value="John"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="editLastName">
+                  <i class="bi bi-person"></i>
+                  Nom
+                </label>
+                <input
+                  type="text"
+                  id="editLastName"
+                  class="form-control"
+                  value="Doe"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="editEmail">
+                <i class="bi bi-envelope"></i>
+                Email universitaire
+              </label>
+              <input
+                type="email"
+                id="editEmail"
+                class="form-control"
+                value="john.doe@universite.tn"
+                required
+              >
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="editUniversity">
+                  <i class="bi bi-building"></i>
+                  Université
+                </label>
+                <select id="editUniversity" class="form-control" required>
+                  <option value="ISET Bizerte" selected>ISET Bizerte</option>
+                  <option value="FST Tunis">FST Tunis</option>
+                  <option value="ENIT">ENIT</option>
+                  <option value="ESPRIT">ESPRIT</option>
+                  <option value="INSAT">INSAT</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="editSpecialty">
+                  <i class="bi bi-bookmark"></i>
+                  Spécialité
+                </label>
+                <input
+                  type="text"
+                  id="editSpecialty"
+                  class="form-control"
+                  value="Informatique - Développement Web"
+                  required
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Biography -->
+          <div class="form-section">
+            <h3><i class="bi bi-file-text"></i> Biographie</h3>
+            <div class="form-group">
+              <label for="editBio">
+                <i class="bi bi-textarea-t"></i>
+                Parlez-nous de vous
+              </label>
+              <textarea
+                id="editBio"
+                class="form-control"
+                rows="5"
+                placeholder="Décrivez votre parcours, vos intérêts..."
+              >Étudiant passionné en informatique avec un fort intérêt pour le développement web et les nouvelles technologies. J'aime collaborer sur des projets innovants et partager mes connaissances avec la communauté étudiante.</textarea>
+              <small class="form-text">Maximum 500 caractères</small>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="form-section">
+            <h3><i class="bi bi-stars"></i> Compétences</h3>
+            <div class="form-group">
+              <label for="editSkills">
+                <i class="bi bi-tags"></i>
+                Vos compétences (séparées par des virgules)
+              </label>
+              <input
+                type="text"
+                id="editSkills"
+                class="form-control"
+                value="Angular, Spring Boot, Java, TypeScript, PostgreSQL, HTML/CSS, Git, REST API"
+                placeholder="Ex: Angular, Java, Python..."
+              >
+              <small class="form-text">Appuyez sur Entrée ou utilisez des virgules pour séparer</small>
+            </div>
+            <div class="skills-preview" id="skillsPreview">
+              <span class="skill-badge">Angular</span>
+              <span class="skill-badge">Spring Boot</span>
+              <span class="skill-badge">Java</span>
+              <span class="skill-badge">TypeScript</span>
+              <span class="skill-badge">PostgreSQL</span>
+              <span class="skill-badge">HTML/CSS</span>
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">REST API</span>
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelBtnBottom">
+              <i class="bi bi-x-circle"></i>
+              <span>Annuler</span>
+            </button>
+            <button type="submit" class="btn-primary">
+              <i class="bi bi-check-circle"></i>
+              <span>Enregistrer les modifications</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="success-message" id="successMessage">
+    <i class="bi bi-check-circle-fill"></i>
+    <span>Profil mis à jour avec succès !</span>
+  </div>
+</div>
