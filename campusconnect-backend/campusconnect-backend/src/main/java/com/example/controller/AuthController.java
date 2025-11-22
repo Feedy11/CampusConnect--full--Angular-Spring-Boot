@@ -31,25 +31,27 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody User user) {
         try {
             User loggedUser = userService.login(user.getEmail(), user.getPassword());
+
+            // ✅ Retourne simplement l'utilisateur sans token
             return ResponseEntity.ok(loggedUser);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(new ErrorResponse(e.getMessage()));
         }
     }
-    
+
     // Classe interne pour les messages d'erreur
     static class ErrorResponse {
         private String message;
-        
+
         public ErrorResponse(String message) {
             this.message = message;
         }
-        
+
         public String getMessage() {
             return message;
         }
-        
+
         public void setMessage(String message) {
             this.message = message;
         }
