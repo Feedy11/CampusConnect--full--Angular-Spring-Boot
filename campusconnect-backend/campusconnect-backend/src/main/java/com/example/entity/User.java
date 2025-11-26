@@ -1,6 +1,5 @@
 package com.example.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -24,6 +23,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String role = "ETUDIANT"; // ETUDIANT ou ADMIN
+
     public User() {}
 
     public User(String fullName, String email, String major, String skills, String password) {
@@ -32,6 +34,7 @@ public class User {
         this.major = major;
         this.skills = skills;
         this.password = password;
+        this.role = "ETUDIANT";
     }
 
     // --- Getters & Setters ---
@@ -81,5 +84,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
